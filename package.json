@@ -1,0 +1,29 @@
+{
+  "name": "@saltcorn/filepond",
+  "version": "0.1.0",
+  "description": "File uploads with Filepond",
+  "main": "index.js",
+  "dependencies": {
+    "@saltcorn/markup": "^0.8.0",
+    "@saltcorn/data": "^0.8.0"
+  },
+  "author": "Tom Nielsen",
+  "license": "MIT",
+  "repository": "github:saltcorn/filepond",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-case-declarations": "off",
+      "no-empty": "warn",
+      "no-fallthrough": "warn"
+    }
+  }
+}
