@@ -123,7 +123,31 @@ const run = async (
   return (
     input({ type: "file", id: `filepond-${viewname}` }) +
     script(
-      domReady(`const inputElement = document.getElementById("filepond-${viewname}");
+      domReady(`
+      FilePond.setOptions({
+        server: {
+            url: '/files/upload',
+            process: {
+                url: '/files/upload',
+                method: 'POST',
+                headers: {
+                    'x-customheader': 'Hello World',
+                },
+                withCredentials: false,
+                onload: (response) => response.key,
+                onerror: (response) => response.data,
+                ondata: (formData) => {
+                    formData.append('Hello', 'World');
+                    return formData;
+                },
+            },
+            revert: './revert',
+            restore: './restore/',
+            load: './load/',
+            fetch: './fetch/',
+        },
+    });
+      const inputElement = document.getElementById("filepond-${viewname}");
         const pond = FilePond.create(inputElement,{
           ${credits === false ? "credits: false," : ""}
         });`)
